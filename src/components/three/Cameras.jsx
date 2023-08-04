@@ -7,7 +7,7 @@ export default function Cameras() {
           target={[0, 0, 0]}
           enableDamping ={true}
           minDistance={10}
-          maxDistance={150}
+          maxDistance={250}
           verticalDragToForward={true}
           dollySpeed={0.5}
           polarRotateSpeed={0.5}
