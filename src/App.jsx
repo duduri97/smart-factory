@@ -7,11 +7,11 @@ import Template from './pages/Template'
 export default function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.VITE_PUBLIC_URL}>
         <Routes>
-          <Route path="/smart-factory/" element={<ThreeScene />} />
-          <Route path="/smart-factory/dashboard" element={<DashBoard />} />
-          <Route path="/smart-factory/template" element={<Template />}  />
+          <Route path="/" element={<ThreeScene />} />
+          <Route path="/dashboard" element={<DashBoard />} />
+          <Route path="/template" element={<Template />}  />
         </Routes>
       </BrowserRouter>
     </>
