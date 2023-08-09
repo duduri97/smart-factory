@@ -32,7 +32,7 @@ const ThreeScene = () => {
         </Suspense>
 
         {/* Helper */}
-        <Perf position="bottom-left" />
+        <Perf position="bottom-right" />
 
         <axesHelper args={[100]} />
 

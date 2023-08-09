@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Link ,Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
 
 import ThreeScene from './components/three/ThreeScene'
 import DashBoard from './pages/DashBoard'
