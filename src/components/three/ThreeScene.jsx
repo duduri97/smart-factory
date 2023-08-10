@@ -10,10 +10,10 @@ import Light from './Light'
 const ThreeScene = () => {
   return (
     <>
-      <Canvas camera={{ position: [-15, 80, 120] }} shadows>
+      <Canvas camera={{ position: [-15, 80, 120] }}>
         <Suspense>
           <Light />
-          <Environment
+          {/* <Environment
             preset="dawn"
             background
             ground={{
@@ -21,7 +21,7 @@ const ThreeScene = () => {
               radius: 320,
               scale: 500
             }}
-          />
+          /> */}
           <Selection>
             <EffectComposer multisampling={1} autoClear={false}>
               <Outline blur visibleEdgeColor="#272020" edgeStrength={100} width={1000} />

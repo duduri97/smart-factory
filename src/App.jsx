@@ -8,8 +8,6 @@ export default function App() {
   return (
     <>
       <Router basename={import.meta.env.VITE_PUBLIC_URL}>
-        <Link to="/dashboard">dashboard</Link>
-        <Link to="/template">template</Link>
         <Routes>
           {routes.map(({ path, title ,component: Component }) => (
             <Route
