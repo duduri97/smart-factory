@@ -1,18 +1,27 @@
-import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
+import { Suspense } from 'react';
+import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom'
 
-import ThreeScene from './components/three/ThreeScene'
-import DashBoard from './pages/DashBoard'
-import Template from './pages/Template'
+import routes from './routes'
+import Loader from './common/loader'
 
 export default function App() {
   return (
     <>
       <Router basename={import.meta.env.VITE_PUBLIC_URL}>
         <Link to="/dashboard">dashboard</Link>
+        <Link to="/template">template</Link>
         <Routes>
-          <Route path="/" element={<ThreeScene />} />
-          <Route path="/dashboard" element={<DashBoard />} />
-          <Route path="/template" element={<Template />} />
+          {routes.map(({ path, title ,component: Component }) => (
+            <Route
+              path={path}
+              key={title}
+              element={
+                <Suspense fallback={<Loader />}>
+                  <Component />
+                </Suspense>
+              }
+            />
+          ))}
         </Routes>
       </Router>
     </>
