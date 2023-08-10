@@ -10,7 +10,7 @@ import Light from './Light'
 const ThreeScene = () => {
   return (
     <>
-      <Canvas camera={{ position: [-15, 80, 120] }}>
+      <Canvas camera={{ position: [-15, 80, 120] }} style={{ height: '500px' }}>
         <Suspense>
           <Light />
           {/* <Environment

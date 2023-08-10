@@ -8,7 +8,7 @@ import FactoryModelDashboard from './FactoryModelDashboard'
 const DashBoardScene = () => {
   return (
     <>
-      <Canvas camera={{ position: [0, 5, 7] }} shadows style={{height:'500px'}}>
+      <Canvas camera={{ position: [0, 5, 7] }} shadows style={{ height: '500px' }}>
         <Suspense>
           <directionalLight />
           {/* <Environment
