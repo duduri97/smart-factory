@@ -3,12 +3,12 @@ import { Canvas } from '@react-three/fiber'
 import { Environment } from '@react-three/drei'
 import { EffectComposer, Selection, Outline } from '@react-three/postprocessing'
 
-import FactoryModelDashboard from './FactoryModelDashboard'
+import FactoryPartModel from './FactoryPartModel'
 
-const DashBoardScene = () => {
+const FactoryPartModelScene = () => {
   return (
     <>
-      <Canvas camera={{ position: [0, 5, 7] }} shadows style={{ height: '500px' }}>
+      <Canvas camera={{ position: [0, 4, 1] }} style={{width:'100%',height:'100%'}}>
         <Suspense>
           <directionalLight />
           {/* <Environment
@@ -25,7 +25,7 @@ const DashBoardScene = () => {
               <Outline blur visibleEdgeColor="#272020" edgeStrength={100} width={1000} />
             </EffectComposer>
 
-            <FactoryModelDashboard />
+            <FactoryPartModel />
           </Selection>
         </Suspense>
       </Canvas>
@@ -33,4 +33,4 @@ const DashBoardScene = () => {
   )
 }
 
-export default DashBoardScene
+export default FactoryPartModelScene
