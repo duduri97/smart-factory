@@ -11,6 +11,7 @@ const FactoryScene = () => {
   return (
     <>
       <Canvas camera={{ position: [-15, 80, 120] }} style={{width:'100%',height:'100%'}}>
+
         <Suspense>
           <Light />
           {/* <Environment
