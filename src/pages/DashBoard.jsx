@@ -1,8 +1,8 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 
-import DashBoardScene from '../components/three/DashBoardScene'
-import ThreeScene from '../components/three/ThreeScene'
+import FactoryPartModelScene from '../components/three/FactoryPartModelScene'
+import FactoryScene from '../components/three/FactoryScene'
 import LeftSidebar from '../components/sidebar/LeftSidebar'
 
 const DashBoard = () => {
@@ -12,10 +12,10 @@ const DashBoard = () => {
       <Container fluid>
         <Row>
           <Col sm={4}>
-            <DashBoardScene />
+            <FactoryPartModelScene />
           </Col>
           <Col sm={8}>
-            <ThreeScene />
+            <FactoryScene />
           </Col>
         </Row>
       </Container>

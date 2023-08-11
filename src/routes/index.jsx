@@ -1,6 +1,5 @@
 import { lazy } from 'react'
 
-const ThreeScene = lazy(() => import('../components/three/ThreeScene'))
 const DashBoard = lazy(() => import('../pages/DashBoard'))
 const Template = lazy(() => import('../pages/Template'))
 

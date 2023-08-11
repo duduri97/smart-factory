@@ -7,10 +7,11 @@ import { EffectComposer, Selection, Outline } from '@react-three/postprocessing'
 import FactoryModel from './FactoryModel'
 import Light from './Light'
 
-const ThreeScene = () => {
+const FactoryScene = () => {
   return (
     <>
-      <Canvas camera={{ position: [-15, 80, 120] }} style={{ height: '500px' }}>
+      <Canvas camera={{ position: [-15, 80, 120] }} style={{width:'100%',height:'100%'}}>
+
         <Suspense>
           <Light />
           {/* <Environment
@@ -52,4 +53,4 @@ const ThreeScene = () => {
   )
 }
 
-export default ThreeScene
+export default FactoryScene
