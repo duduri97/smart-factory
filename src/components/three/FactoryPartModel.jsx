@@ -4,7 +4,7 @@ import { Select } from '@react-three/postprocessing'
 
 const FactoryPartModel = () => {
   const groupRef = useRef()
-  const gltf = useGLTF('./models/DSG_A.gltf')
+  const gltf = useGLTF('./models/Factory_2.glb')
   const [hover, setHover] = useState()
 
   return (
