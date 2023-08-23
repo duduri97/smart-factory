@@ -27,7 +27,7 @@ const FactoryScene = () => {
         </Suspense>
 
         {/* Helper */}
-        <Perf position="bottom-left" />
+        {/* <Perf position="bottom-left" /> */}
 
         {/* <axesHelper args={[100]} /> */}
 

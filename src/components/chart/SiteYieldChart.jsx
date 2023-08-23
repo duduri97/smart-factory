@@ -3,7 +3,7 @@ import ReactApexChart from 'react-apexcharts'
 
 const options = {
   chart: {
-    height: 600,
+    height: 'auto',
     type: 'radialBar',
     toolbar: {
       show: false
@@ -82,9 +82,44 @@ const options = {
   labels: ['value']
 }
 
+const style = {
+  chartLabel: {
+    fontSize: 'medium',
+    color: 'white'
+  },
+  title: {
+    fontSize: 'large',
+    color: '#dbcfe1',
+    padding: '0.1rem 0 0 0.7rem'
+  }
+}
+
 const SiteYieldChart = () => {
   return (
-    <ReactApexChart options={options} series={[86]} type="radialBar" width={'100%'} />
+    <>
+      <div style={style.title}>Site Yield</div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+        <label style={style.chartLabel}>PASS</label>
+        <label style={style.chartLabel}>68,651건</label>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+        <label style={style.chartLabel}>FAIL</label>
+        <label style={style.chartLabel}>470건</label>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ padding: '2rem 0 0 0' }}>
+          <label style={style.chartLabel}>In Qty</label>
+          <br></br>
+          <label style={style.chartLabel}>69,121</label>
+        </div>
+        <ReactApexChart options={options} series={[86]} type="radialBar" height="100%" />
+        <div style={{ padding: '2rem 0 0 0' }}>
+          <label style={style.chartLabel}>Out Qty</label>
+          <br></br>
+          <label style={style.chartLabel}>68,651</label>
+        </div>
+      </div>
+    </>
   )
 }
 
