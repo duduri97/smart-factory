@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Col, Image } from 'react-bootstrap'
+import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 
 import FactoryPartModelScene from '../components/three/FactoryPartModelScene'
 import FactoryScene from '../components/three/FactoryScene'
@@ -8,19 +8,18 @@ import LeftSidebar from '../components/sidebar/LeftSidebar'
 // 차트
 import FacilityUtilizaionRateChart from '../components/chart/FacilityUtilizaionRateChart'
 import SiteYieldChart from '../components/chart/SiteYieldChart'
+import OperationalStatus from '../components/chart/OperationalStatus'
 
 // 테이블
 import StateHistoryTable from '../components/table/StateHistoryTable'
 import FactoryInfoTable from '../components/table/FactoryInfoTable'
 
+import { FaCircleArrowLeft, FaCircleArrowRight } from 'react-icons/fa6'
+
 const style = {
   logoImage: {
-    width: '90%',
-    height: '90%'
-  },
-  chartLabel: {
-    fontSize: 'medium',
-    color: 'white'
+    width: '50%',
+    height: '50%'
   },
   title: {
     fontSize: 'large',
@@ -38,15 +37,25 @@ const DashBoard = () => {
       {/* 메인 */}
       <Container fluid>
         {/* 헤더 */}
-        <Row className="" style={{ height: '15%' }}>
+        <Row className="" style={{ height: '10%' }}>
           <Col sm={3}>
             <Row className="h-75 m-1">
               <Image src="./images/logo.png" style={style.logoImage} />
             </Row>
           </Col>
           <Col sm={6}>
-            <Row style={{height: '70%'}}></Row>
-            <Row className="h-25 m-1 border border-secondary rounded">3D모델 이동버튼</Row>
+            <Row style={{ height: '20%' }}></Row>
+            <Row className="h-25 m-1">
+              <div className="text-center">
+                <Button variant="link" style={{ fontSize: 'xx-large', color: '#dbcfe1' }}>
+                  <FaCircleArrowLeft />
+                </Button>
+                <label style={{ fontSize: 'x-large', color: '#dbcfe1', margin: '1rem' }}>SX5000(A)</label>
+                <Button variant="link" style={{ fontSize: 'xx-large', color: '#dbcfe1' }}>
+                  <FaCircleArrowRight />
+                </Button>
+              </div>
+            </Row>
           </Col>
           <Col sm={3}>
             <Row style={{ fontSize: 'medium', color: 'white' }}>
@@ -57,14 +66,14 @@ const DashBoard = () => {
         </Row>
 
         {/* 모델  */}
-        <Row className="" style={{ height: '55%' }}>
+        <Row className="" style={{ height: '60%' }}>
           {/* 기본정보, 가동상태, 소모전력 */}
           <Col sm={3} className="h-100">
             <Row className="h-25 m-1 border border-secondary rounded">
               <div style={style.title}>기본정보</div>
             </Row>
-            <Row className="h-25 m-1 border border-secondary rounded">
-              <div style={style.title}>가동상태</div>
+            <Row className="m-1 border border-secondary rounded">
+              <OperationalStatus />
             </Row>
             <Row className="h-50 m-1 border border-secondary rounded">
               <div style={style.title}>소모전력</div>
@@ -90,7 +99,7 @@ const DashBoard = () => {
         </Row>
 
         {/* 차트 */}
-        <Row className="" style={{ height: '33%', marginTop: '1rem' }}>
+        <Row className="" style={{ height: '35%', marginTop: '1rem' }}>
           <Col sm={3} className="h-100">
             <Row className="h-75 m-1 border border-secondary rounded">
               <StateHistoryTable />
