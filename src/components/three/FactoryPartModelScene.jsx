@@ -5,6 +5,7 @@ import { EffectComposer, Selection, Outline } from '@react-three/postprocessing'
 import FactoryPartModel from './FactoryPartModel'
 import FactoryPartCameraControl from './FactoryPartCameraControl'
 
+
 const FactoryPartModelScene = () => {
   return (
     <>
