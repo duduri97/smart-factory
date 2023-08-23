@@ -1,24 +1,19 @@
 import { lazy } from 'react'
 
+const Home = lazy(() => import('../pages/Home'))
 const DashBoard = lazy(() => import('../pages/DashBoard'))
-const Template = lazy(() => import('../pages/Template'))
 
 const coreRoutes = [
   {
     path: '/',
-    title: 'DashBoard',
-    component: DashBoard
+    title: 'Home',
+    component: Home
   },
   {
     path: '/dashboard',
     title: 'Dashboard',
     component: DashBoard
   },
-  {
-    path: '/template',
-    title: 'Template',
-    component: Template
-  }
 ]
 
 const routes = [...coreRoutes]
