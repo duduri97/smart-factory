@@ -1,12 +1,11 @@
 import React from 'react'
+
+import { Link } from 'react-router-dom';
 import { Sidebar, Menu, MenuItem, useProSidebar } from 'react-pro-sidebar'
 
-import MenuRoundedIcon from '@mui/icons-material/MenuRounded'
 import GridViewRoundedIcon from '@mui/icons-material/GridViewRounded'
 import { FaT, FaH, FaV } from "react-icons/fa6"
 import { TfiLayoutSlider } from "react-icons/tfi";
-
-import './Sidebar.css'
 
 const LeftSidebar = () => {
   const { collapseSidebar } = useProSidebar()
@@ -39,10 +38,13 @@ const LeftSidebar = () => {
                 collapseSidebar()
               }}
             />
-          }>
+          }
+          component={<Link to="/" />} 
+          style={{marginBottom:'40px', marginTop:'20px'}}
+        >
           <h5 style={{ color: 'white' }}>ROOT SEMICON</h5>
         </MenuItem>
-        <MenuItem icon={<GridViewRoundedIcon />} style={{ color: 'white' }}>
+        <MenuItem component={<Link to="/dashboard" />} icon={<GridViewRoundedIcon />} style={{ color: 'white' }}>
           Dashboard
         </MenuItem>
         <MenuItem icon={<FaT />} style={{ color: 'white' }}>
