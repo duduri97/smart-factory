@@ -3,7 +3,7 @@ import ReactApexChart from 'react-apexcharts'
 
 const options = {
   chart: {
-    height: 600,
+    height: 'auto',
     type: 'radialBar',
     toolbar: {
       show: false
@@ -82,9 +82,41 @@ const options = {
   labels: ['value']
 }
 
+const style = {
+  chartLabel: {
+    fontSize: 'medium',
+    color: 'white'
+  },
+  title: {
+    fontSize: 'large',
+    color: '#dbcfe1',
+    padding: '0.1rem 0 0 0.7rem'
+  }
+}
+
+
 const FacilityUtilizaionRateChart = () => {
   return (
-    <ReactApexChart options={options} series={[42]} type="radialBar" width={'100%'} />
+    <>
+      <div style={style.title}>설비 가용률</div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+        <label style={style.chartLabel}>평균수리시간</label>
+        <label style={style.chartLabel}>평균고강간격</label>
+      </div>
+      <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
+        <div style={{ padding: '2rem 0 0 0' }}>
+          <label style={style.chartLabel}>MTTR</label>
+          <br></br>
+          <label style={style.chartLabel}>60분</label>
+        </div>
+        <ReactApexChart options={options} series={[42]} type="radialBar" height="100%" />
+        <div style={{ padding: '2rem 0 0 0' }}>
+          <label style={style.chartLabel}>MTBF</label>
+          <br></br>
+          <label style={style.chartLabel}>1,515분</label>
+        </div>
+      </div>
+    </>
   )
 }
 

@@ -39,10 +39,9 @@ const LeftSidebar = () => {
               }}
             />
           }
-          component={<Link to="/" />} 
           style={{marginBottom:'40px', marginTop:'20px'}}
         >
-          <h5 style={{ color: 'white' }}>ROOT SEMICON</h5>
+          <Link to="/" style={{ color: 'white' }}>ROOT SEMICON</Link>
         </MenuItem>
         <MenuItem component={<Link to="/dashboard" />} icon={<GridViewRoundedIcon />} style={{ color: 'white' }}>
           Dashboard
