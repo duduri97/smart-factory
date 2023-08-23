@@ -16,10 +16,6 @@ import FactoryInfoTable from '../components/table/FactoryInfoTable'
 
 import { FaCircleArrowLeft, FaCircleArrowRight } from 'react-icons/fa6'
 
-// 테이블
-import StateHistoryTable from '../components/table/StateHistoryTable'
-import FactoryInfoTable from '../components/table/FactoryInfoTable'
-
 const style = {
   logoImage: {
     width: '50%',
