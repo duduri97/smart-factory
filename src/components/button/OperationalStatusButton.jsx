@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Form } from 'react-bootstrap'
 
-const OperationalStatus = () => {
+const OperationalStatusButton = () => {
   const [isChecked, setIsChecked] = useState(true);
 
   const handleToggle = () => setIsChecked(!isChecked);
@@ -24,4 +24,4 @@ const OperationalStatus = () => {
   )
 }
 
-export default OperationalStatus
+export default OperationalStatusButton

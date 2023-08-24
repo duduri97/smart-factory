@@ -3,7 +3,7 @@ import ReactApexChart from 'react-apexcharts'
 
 const options = {
   chart: {
-    height: 'auto',
+    height: 350,
     type: 'radialBar',
     toolbar: {
       show: false
