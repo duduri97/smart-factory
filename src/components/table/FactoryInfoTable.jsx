@@ -12,8 +12,8 @@ const FactoryInfoTable = () => {
   return (
     <>
       <div style={style.title}>공정정보</div>
-      <Table className="table-bordered border-info" bordered responsive hover>
-        <thead className="table-dark">
+      <Table className="table-dark table-bordered border-secondary" bordered responsive hover>
+        <thead>
           <tr>
             <th>순번</th>
             <th>Process</th>
@@ -28,7 +28,7 @@ const FactoryInfoTable = () => {
             <th>Time</th>
           </tr>
         </thead>
-        <tbody className="table-light">
+        <tbody>
           <tr>
             <td>1</td>
             <td>IQC</td>
