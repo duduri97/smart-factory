@@ -47,13 +47,13 @@ const LeftSidebar = () => {
         <MenuItem component={<Link to="/dashboard" />} icon={<GridViewRoundedIcon />} style={{ color: 'white' }}>
           Dashboard
         </MenuItem>
-        <MenuItem icon={<FaT />} style={{ color: 'white' }}>
+        <MenuItem component={<Link to="/dashboard" />} icon={<FaT />} style={{ color: 'white' }}>
           Tester
         </MenuItem>
-        <MenuItem icon={<FaH />} style={{ color: 'white' }}>
+        <MenuItem component={<Link to="/dashboard" />} icon={<FaH />} style={{ color: 'white' }}>
           Handler
         </MenuItem>
-        <MenuItem icon={<FaV />} style={{ color: 'white' }}>
+        <MenuItem component={<Link to="/dashboard" />} icon={<FaV />} style={{ color: 'white' }}>
           Visual
           <br />
           Inspect
