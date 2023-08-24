@@ -10,7 +10,7 @@ const OperationalStatusButton = () => {
     <>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <label style={{ fontSize: 'large', color: '#dbcfe1' }}>가동상태</label>
-        <Form style={{ fontSize: 'xxx-large' }}>
+        <Form style={{ display:'flex', alignItems:'center', fontSize: 'xxx-large', pointerEvents: 'none' }}>
           <Form.Check
             type="switch"
             id="custom-switch"

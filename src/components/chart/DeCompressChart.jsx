@@ -6,8 +6,6 @@ const style = {
     alignItems: 'center',
     fontSize: 'large',
     color: '#dbcfe1',
-    width: '40%',
-    marginLeft: '1rem'
   }
 }
 

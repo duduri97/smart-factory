@@ -4,7 +4,7 @@ const style = {
   title: {
     display: 'flex',
     alignItems: 'center',
-    fontSize: 'large',
+    fontSize: 'medium',
     color: '#dbcfe1',
     width: '40%'
   },
@@ -38,7 +38,7 @@ const options = {
     toolbar: {
       show: false
     },
-    foreColor: "#F7F4F4",
+    foreColor: '#F7F4F4'
   },
   dataLabels: {
     enabled: false
@@ -57,14 +57,14 @@ const options = {
   },
   theme: {
     mode: 'light',
-    palette: 'palette1', 
+    palette: 'palette1',
     monochrome: {
-        enabled: false,
-        color: '#255aee',
-        shadeTo: 'light',
-        shadeIntensity: 0.65
-    },
-  },
+      enabled: false,
+      color: '#255aee',
+      shadeTo: 'light',
+      shadeIntensity: 0.65
+    }
+  }
 }
 
 const PowerConsumptionLineChart = () => {

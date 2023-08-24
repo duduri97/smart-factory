@@ -21,18 +21,6 @@ import FactoryFacilityMovementButton from '../components/button/FactoryFacilityM
 // 정보
 import FactoryFacilityInfo from '../components/info/FactoryFacilityInfo'
 
-const style = {
-  logoImage: {
-    width: '50%',
-    height: '50%'
-  },
-  title: {
-    fontSize: 'large',
-    color: '#dbcfe1',
-    padding: '0.1rem 0 0 0.7rem'
-  }
-}
-
 const DashBoard = () => {
   return (
     <div style={{ display: 'flex', height: '100vh' }}>
@@ -44,9 +32,6 @@ const DashBoard = () => {
         {/* 헤더 */}
         <Row className="" style={{ height: '10%' }}>
           <Col sm={3}>
-            <Row className="h-75 m-1">
-              <Image src="./images/logo.png" style={style.logoImage} />
-            </Row>
           </Col>
           <Col sm={6}>
             <Row style={{ height: '20%' }}></Row>
@@ -55,10 +40,6 @@ const DashBoard = () => {
             </Row>
           </Col>
           <Col sm={3}>
-            <Row style={{ fontSize: 'medium', color: 'white' }}>
-              <Col sm={5}></Col>
-              <Col sm={7}>ALLforLand RoyLobs</Col>
-            </Row>
           </Col>
         </Row>
 
@@ -69,7 +50,7 @@ const DashBoard = () => {
             <Row className="h-25 m-1 border border-secondary rounded">
               <FactoryFacilityInfo />
             </Row>
-            <Row className="m-1 border border-secondary rounded">
+            <Row className="h-25 m-1 border border-secondary rounded">
               <OperationalStatusButton />
             </Row>
             <Row className="h-50 m-1 border border-secondary rounded">
