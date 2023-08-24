@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Col, Image, Button } from 'react-bootstrap'
+import { Container, Row, Col, Image } from 'react-bootstrap'
 
 import FactoryPartModelScene from '../components/three/FactoryPartModelScene'
 import FactoryScene from '../components/three/FactoryScene'
@@ -8,13 +8,18 @@ import LeftSidebar from '../components/sidebar/LeftSidebar'
 // 차트
 import FacilityUtilizaionRateChart from '../components/chart/FacilityUtilizaionRateChart'
 import SiteYieldChart from '../components/chart/SiteYieldChart'
-import OperationalStatus from '../components/chart/OperationalStatus'
+import CarouselTemplate from '../components/carouse/CarouselTemplate.jsx.jsx'
 
 // 테이블
 import StateHistoryTable from '../components/table/StateHistoryTable'
 import FactoryInfoTable from '../components/table/FactoryInfoTable'
 
-import { FaCircleArrowLeft, FaCircleArrowRight } from 'react-icons/fa6'
+// 버튼
+import OperationalStatusButton from '../components/button/OperationalStatusButton'
+import FactoryFacilityMovementButton from '../components/button/FactoryFacilityMovementButton'
+
+// 정보
+import FactoryFacilityInfo from '../components/info/FactoryFacilityInfo'
 
 const style = {
   logoImage: {
@@ -46,15 +51,7 @@ const DashBoard = () => {
           <Col sm={6}>
             <Row style={{ height: '20%' }}></Row>
             <Row className="h-25 m-1">
-              <div className="text-center">
-                <Button variant="link" style={{ fontSize: 'xx-large', color: '#dbcfe1' }}>
-                  <FaCircleArrowLeft />
-                </Button>
-                <label style={{ fontSize: 'x-large', color: '#dbcfe1', margin: '1rem' }}>SX5000(A)</label>
-                <Button variant="link" style={{ fontSize: 'xx-large', color: '#dbcfe1' }}>
-                  <FaCircleArrowRight />
-                </Button>
-              </div>
+              <FactoryFacilityMovementButton />
             </Row>
           </Col>
           <Col sm={3}>
@@ -70,13 +67,13 @@ const DashBoard = () => {
           {/* 기본정보, 가동상태, 소모전력 */}
           <Col sm={3} className="h-100">
             <Row className="h-25 m-1 border border-secondary rounded">
-              <div style={style.title}>기본정보</div>
+              <FactoryFacilityInfo />
             </Row>
             <Row className="m-1 border border-secondary rounded">
-              <OperationalStatus />
+              <OperationalStatusButton />
             </Row>
             <Row className="h-50 m-1 border border-secondary rounded">
-              <div style={style.title}>소모전력</div>
+              <CarouselTemplate />
             </Row>
           </Col>
 
