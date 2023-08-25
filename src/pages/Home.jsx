@@ -2,7 +2,7 @@ import React from 'react'
 import LeftSidebar from '../components/sidebar/LeftSidebar'
 import Typography from '@mui/material/Typography'
 
-import FactoryScene from '../components/three/FactoryScene'
+import MiniMapFactoryScene from '../components/three/MiniMapFactoryScene'
 
 const style = {
   home: {
@@ -44,7 +44,7 @@ const Home = () => {
 
         <div className="box box2" style={{ ...style.box, ...style.box1 }}>
           <Typography sx={{ color: 'red' }}>
-            <FactoryScene />
+            <MiniMapFactoryScene />
           </Typography>
         </div>
         <div className="box box3" style={style.box}>
