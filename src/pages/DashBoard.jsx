@@ -1,8 +1,8 @@
 import React from 'react'
-import { Container, Row, Col, Image } from 'react-bootstrap'
+import { Container, Row, Col} from 'react-bootstrap'
 
 import FactoryPartModelScene from '../components/three/FactoryPartModelScene'
-import FactoryScene from '../components/three/FactoryScene'
+import MiniMapFactoryScene from '../components/three/MiniMapFactoryScene'
 import LeftSidebar from '../components/sidebar/LeftSidebar'
 
 // 차트
@@ -59,7 +59,7 @@ const DashBoard = () => {
           </Col>
 
           <Col sm={6} className="h-100" style={{ height: '100%' }}>
-            <Row className="h-100 m-1 border border-secondary rounded">
+            <Row className="h-100 border border-secondary rounded">
               <FactoryPartModelScene />
             </Row>
           </Col>
@@ -67,7 +67,7 @@ const DashBoard = () => {
           <Col sm={3} className="h-100">
             {/* 공장 모델 */}
             <Row className="h-50 m-1" style={{ height: '100%', borderRadius: '1rem' }}>
-              <FactoryScene />
+              <MiniMapFactoryScene />
             </Row>
             {/* 설비 가용률 */}
             <Row className="h-50 m-1 border border-secondary rounded">
@@ -84,7 +84,7 @@ const DashBoard = () => {
             </Row>
           </Col>
           <Col sm={6} className="h-100">
-            <Row className="h-75 m-1 border border-secondary rounded">
+            <Row className="h-75 border border-secondary rounded">
               <FactoryInfoTable />
             </Row>
           </Col>

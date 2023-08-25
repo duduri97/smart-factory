@@ -15,7 +15,7 @@ const FactoryPartModelScene = () => {
           <directionalLight />
           <Selection>
             <EffectComposer multisampling={1} autoClear={false}>
-              <Outline blur visibleEdgeColor="#272020" edgeStrength={100} width={1000} />
+              <Outline blur visibleEdgeColor="red" edgeStrength={10000} width={1000} />
             </EffectComposer>
 
             <FactoryPartModel />
