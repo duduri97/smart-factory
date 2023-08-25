@@ -4,13 +4,13 @@ import { Canvas } from '@react-three/fiber'
 
 import { EffectComposer, Selection, Outline } from '@react-three/postprocessing'
 
-import FactoryModel from './FactoryModel'
+import MiniMapFactoryModel from './MiniMapFactoryModel'
 import Light from './Light'
 
-import FactoryCameraControl from './FactoryCameraControl'
+import MiniMapFactoryCameraControl from './MiniMapFactoryCameraControl'
 
 
-const FactoryScene = () => {
+const MiniMapFactoryScene = () => {
   return (
     <>
       <Canvas style={{width:'100%',height:'100%'}}>
@@ -19,10 +19,10 @@ const FactoryScene = () => {
           <Light />
           <Selection>
             <EffectComposer multisampling={1} autoClear={false}>
-              <Outline blur visibleEdgeColor="#272020" edgeStrength={100} width={1000} />
+              <Outline blur visibleEdgeColor="red" edgeStrength={10000} width={1000} />
             </EffectComposer>
 
-            <FactoryModel />
+            <MiniMapFactoryModel />
           </Selection>
         </Suspense>
 
@@ -31,10 +31,10 @@ const FactoryScene = () => {
 
         {/* <axesHelper args={[100]} /> */}
 
-        <FactoryCameraControl />
+        <MiniMapFactoryCameraControl />
       </Canvas>
     </>
   )
 }
 
-export default FactoryScene
+export default MiniMapFactoryScene

@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react'
 import { CameraControls } from '@react-three/drei'
 
-const FactoryCameraControl = () => {
+const MiniMapFactoryCameraControl = () => {
   const factoryCameraControlsRef = useRef()
 
   useEffect(() => {
@@ -25,4 +25,4 @@ const FactoryCameraControl = () => {
   )
 }
 
-export default FactoryCameraControl
+export default MiniMapFactoryCameraControl

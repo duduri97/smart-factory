@@ -101,7 +101,7 @@ const FacilityUtilizaionRateChart = () => {
       <div style={style.title}>설비 가용률</div>
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
         <label style={style.chartLabel}>평균수리시간</label>
-        <label style={style.chartLabel}>평균고강간격</label>
+        <label style={style.chartLabel}>평균고장간격</label>
       </div>
       <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
         <div style={{ padding: '2rem 0 0 0' }}>
