@@ -4,13 +4,14 @@ import { clickModelPostion } from '../../store'
 
 const FactoryPartCameraControl = () => {
   const cameraControlsRef = useRef()
-  const {position, lerping} = clickModelPostion((state) => state)
+  const { position, lerping, move } = clickModelPostion((state) => state)
 
   useEffect(() => {
-    if (cameraControlsRef.current) {
+    if (cameraControlsRef.current && move) {
       cameraControlsRef.current.setLookAt(190, 50, -110, 80, 0, -110) 
+
       if (lerping) {
-        cameraControlsRef.current.setLookAt(position.x, 50, position.z, position.x - 10, 0, position.z) 
+        cameraControlsRef.current.setLookAt(position.x + 30, 20, position.z, position.x - 90, 0, position.z)
       }
     }
   })

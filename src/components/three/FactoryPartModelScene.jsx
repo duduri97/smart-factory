@@ -1,30 +1,64 @@
-import { Suspense } from 'react'
+import { Suspense, useState, useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { EffectComposer, Selection, Outline } from '@react-three/postprocessing'
+import { EffectComposer, Selection, Outline, Select } from '@react-three/postprocessing'
+import { useGLTF } from '@react-three/drei'
 
-import FactoryPartModel from './FactoryPartModel'
+import { clickModelPostion } from '../../store'
+
 import FactoryPartCameraControl from './FactoryPartCameraControl'
 
-
 const FactoryPartModelScene = () => {
+  const groupRef = useRef()
+  const { modelPartName, setMove } = clickModelPostion((state) => state)
+  const { nodes } = useGLTF('./models/Factory_2.glb')
+  const [hovered, setHover] = useState()
+  const [showed, setShow] = useState(false)
+
+  const pointOnEventHandler = (e) => {
+    setHover(e.object.name)
+    setMove(false)
+  }
+
+  const pointOutEventHandler = (e) => {
+    setHover(false)
+    setMove(false)
+  };  
+
+  const clickEventHandler = (e) => {
+    setShow(!showed)
+
+  }
+
   return (
     <>
-      <Canvas style={{width:'100%',height:'100%'}}>
-
+      <Canvas style={{ width: '100%', height: '100%' }}>
         <Suspense>
           <directionalLight />
           <Selection>
             <EffectComposer multisampling={1} autoClear={false}>
               <Outline blur visibleEdgeColor="red" edgeStrength={10000} width={1000} />
             </EffectComposer>
-
-            <FactoryPartModel />
+            <group ref={groupRef} dispose={null}>
+              <primitive object={nodes.Scene} />
+              {['BlueBox', 'GreenBox', 'RedBox'].map((modelName) => (
+                <Select key={modelName} name={modelName} enabled={hovered === modelName || modelPartName === modelName}>
+                  <mesh
+                    onPointerOver={pointOnEventHandler}
+                    onPointerOut={pointOutEventHandler}
+                    onClick={clickEventHandler}
+                  >
+                    <primitive object={nodes[modelName]} />
+                  </mesh>
+                </Select>
+              ))}
+            </group>
           </Selection>
+
         </Suspense>
         {/* <axesHelper args={[200]} /> */}
 
-        <FactoryPartCameraControl />        
-      </Canvas>
+        <FactoryPartCameraControl/>
+        </Canvas>
     </>
   )
 }
