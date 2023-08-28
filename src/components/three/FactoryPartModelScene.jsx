@@ -12,6 +12,7 @@ const FactoryPartModelScene = () => {
   const { modelPartName, setMove } = clickModelPostion((state) => state)
   const { nodes } = useGLTF('./models/Factory_2.glb')
   const [hovered, setHover] = useState()
+  const [showed, setShow] = useState(false)
 
   const pointOnEventHandler = (e) => {
     setHover(e.object.name)
@@ -23,6 +24,10 @@ const FactoryPartModelScene = () => {
     setMove(false)
   };  
 
+  const clickEventHandler = (e) => {
+    setShow(!showed)
+
+  }
 
   return (
     <>
@@ -40,6 +45,7 @@ const FactoryPartModelScene = () => {
                   <mesh
                     onPointerOver={pointOnEventHandler}
                     onPointerOut={pointOutEventHandler}
+                    onClick={clickEventHandler}
                   >
                     <primitive object={nodes[modelName]} />
                   </mesh>
@@ -51,8 +57,8 @@ const FactoryPartModelScene = () => {
         </Suspense>
         {/* <axesHelper args={[200]} /> */}
 
-        <FactoryPartCameraControl />
-      </Canvas>
+        <FactoryPartCameraControl/>
+        </Canvas>
     </>
   )
 }

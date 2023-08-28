@@ -19,14 +19,15 @@ const style = {
 
 const series = [
   {
-    name: '소비전력',
+    name: 'XWH',
     data: [19, 22, 30, 38]
   }
 ]
 const options = {
   chart: {
     height: 350,
-    type: 'line',
+    type: 'area',
+    background:'#fffff',
     dropShadow: {
       enabled: true,
       color: '#000',
@@ -56,8 +57,8 @@ const options = {
     tickAmount: 3
   },
   theme: {
-    mode: 'light',
-    palette: 'palette1',
+    mode: 'dark',
+    palette: 'palette4',
     monochrome: {
       enabled: false,
       color: '#255aee',
