@@ -9,10 +9,9 @@ import FactoryPartCameraControl from './FactoryPartCameraControl'
 
 const FactoryPartModelScene = () => {
   const groupRef = useRef()
-  const { modelPartName, setMove } = clickModelPostion((state) => state)
+  const { modelPartName, setPosition, setLerping, setModelPartName, setMove } = clickModelPostion((state) => state)
   const { nodes } = useGLTF('./models/Factory_2.glb')
   const [hovered, setHover] = useState()
-  const [showed, setShow] = useState(false)
 
   const pointOnEventHandler = (e) => {
     setHover(e.object.name)
@@ -24,9 +23,11 @@ const FactoryPartModelScene = () => {
     setMove(false)
   };  
 
-  const clickEventHandler = (e) => {
-    setShow(!showed)
-
+  const onClickEventHandler = (e) => {
+    setPosition(e.object.position)
+    setLerping(true)
+    setMove(true)
+    setModelPartName(e.object.name)
   }
 
   return (
@@ -45,7 +46,7 @@ const FactoryPartModelScene = () => {
                   <mesh
                     onPointerOver={pointOnEventHandler}
                     onPointerOut={pointOutEventHandler}
-                    onClick={clickEventHandler}
+                    onClick={onClickEventHandler}
                   >
                     <primitive object={nodes[modelName]} />
                   </mesh>
