@@ -2,7 +2,6 @@ import { Suspense, useState, useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { EffectComposer, Selection, Outline, Select } from '@react-three/postprocessing'
 import { useGLTF } from '@react-three/drei'
-import { useNavigate } from 'react-router-dom'
 
 import { clickModelPostion } from '../../store'
 
@@ -10,27 +9,24 @@ import FactoryPartCameraControl from './FactoryPartCameraControl'
 
 const FactoryPartModelScene = () => {
   const groupRef = useRef()
-  const { modelPartName, setPosition, setLerping, setModelPartName, setMove } = clickModelPostion((state) => state)
+  const { modelPartName, setPosition, setLerping, setModelPartName, setCameraMove } = clickModelPostion((state) => state)
   const { nodes } = useGLTF('./models/Factory_2.glb')
   const [hovered, setHover] = useState()
-  const nav = useNavigate()
 
   const pointOnEventHandler = (e) => {
     setHover(e.object.name)
-    setMove(false)
+    setCameraMove(false)
   }
 
   const pointOutEventHandler = (e) => {
     setHover(false)
-    setMove(false)
   };  
 
   const onClickEventHandler = (e) => {
-    nav('/dashboard')
     setPosition(e.object.position)
     setLerping(true)
-    setMove(true)
     setModelPartName(e.object.name)
+    setCameraMove(true)
   }
 
   return (

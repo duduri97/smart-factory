@@ -3,6 +3,7 @@ import { Perf } from 'r3f-perf'
 import { Canvas } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
 import { EffectComposer, Selection, Outline, Select } from '@react-three/postprocessing'
+import { useNavigate } from 'react-router-dom'
 
 import Light from './Light'
 
@@ -11,26 +12,27 @@ import { clickModelPostion } from '../../store'
 
 const MiniMapFactoryScene = () => {
   const groupRef = useRef()
-  const { modelPartName, setModelPartName, setPosition, setLerping, setMove } = clickModelPostion((state) => state)
+  const { modelPartName, setModelPartName, setPosition, setLerping, setCameraMove } = clickModelPostion((state) => state)
   const { nodes } = useGLTF('./models/Factory_1.glb')
   const [hovered, setHover] = useState()
+  const nav = useNavigate()
 
   const pointOnEventHandler = (e) => {
     setHover(e.object.name)
-    setMove(false)
+    setCameraMove(false)
   }
 
   const pointOutEventHandler = (e) => {
     setHover(false)
-    setMove(false)
   };  
 
 
   const onClickEventHandler = (e) => {
+    nav('/dashboard')
     setPosition(e.object.position)
     setLerping(true)
-    setMove(true)
     setModelPartName(e.object.name)
+    setCameraMove(true)
   }
 
   return (
