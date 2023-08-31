@@ -16,8 +16,9 @@ import FactoryIoTSensorInfo from '../components/info/FactoryIoTSensorInfo'
 
 // 시계
 import RearTimeInfo from '../components/info/RearTimeInfo'
+
 // 3D 모델
-import FactoryPartModelScene from '../components/three/FactoryPartModelScene'
+import MiniMapFactoryScene from '../components/three/MiniMapFactoryScene'
 
 const style = {
   home: {
@@ -81,7 +82,7 @@ const Home = () => {
 
         {/* 미니맵 */}
         <div className="box bigBox" style={{ ...style.bigBox, ...style.box }}>
-          <FactoryPartModelScene />
+          <MiniMapFactoryScene />
         </div>
 
         {/* 정보 */}

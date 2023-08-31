@@ -10,27 +10,26 @@ import FactoryPartCameraControl from './FactoryPartCameraControl'
 
 const FactoryPartModelScene = () => {
   const groupRef = useRef()
-  const { modelPartName, setPosition, setLerping, setModelPartName, setMove } = clickModelPostion((state) => state)
+  const { modelPartName, setPosition, setLerping, setModelPartName, setCameraMove } = clickModelPostion((state) => state)
   const { nodes } = useGLTF('./models/Factory_2.glb')
   const [hovered, setHover] = useState()
   const nav = useNavigate()
 
   const pointOnEventHandler = (e) => {
     setHover(e.object.name)
-    setMove(false)
+    setCameraMove(false)
   }
 
   const pointOutEventHandler = (e) => {
     setHover(false)
-    setMove(false)
   };  
 
   const onClickEventHandler = (e) => {
     nav('/dashboard')
     setPosition(e.object.position)
     setLerping(true)
-    setMove(true)
     setModelPartName(e.object.name)
+    setCameraMove(true)
   }
 
   return (
