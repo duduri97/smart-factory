@@ -2,6 +2,7 @@ import { Suspense, useState, useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { EffectComposer, Selection, Outline, Select } from '@react-three/postprocessing'
 import { useGLTF } from '@react-three/drei'
+import { useNavigate } from 'react-router-dom'
 
 import { clickModelPostion } from '../../store'
 
@@ -12,6 +13,7 @@ const FactoryPartModelScene = () => {
   const { modelPartName, setPosition, setLerping, setModelPartName, setCameraMove } = clickModelPostion((state) => state)
   const { nodes } = useGLTF('./models/Factory_2.glb')
   const [hovered, setHover] = useState()
+  const nav = useNavigate()
 
   const pointOnEventHandler = (e) => {
     setHover(e.object.name)
@@ -23,6 +25,7 @@ const FactoryPartModelScene = () => {
   };  
 
   const onClickEventHandler = (e) => {
+    nav('/dashboard')
     setPosition(e.object.position)
     setLerping(true)
     setModelPartName(e.object.name)

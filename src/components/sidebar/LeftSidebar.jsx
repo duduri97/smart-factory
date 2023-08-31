@@ -43,7 +43,6 @@ const LeftSidebar = () => {
             <Image src="./images/logo.png" />
           </Link>
         </MenuItem>
-
         <Menu
           rootStyles={{
             ['.' + menuClasses.subMenuContent]: {
