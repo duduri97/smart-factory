@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
-import { Sidebar, Menu, MenuItem, useProSidebar } from 'react-pro-sidebar'
+import { Sidebar, Menu, SubMenu, MenuItem, useProSidebar } from 'react-pro-sidebar'
 import { Image } from 'react-bootstrap'
 import GridViewRoundedIcon from '@mui/icons-material/GridViewRounded'
 import { FaT, FaH, FaV } from 'react-icons/fa6'
@@ -44,12 +44,12 @@ const LeftSidebar = () => {
             <Image src="./images/logo.png" />
           </Link>
         </MenuItem>
-        <MenuItem component={<Link to="/dashboard" />} icon={<GridViewRoundedIcon />} style={{ color: 'white' }}>
-          Dashboard
-        </MenuItem>
-        <MenuItem component={<Link to="/dashboard" />} icon={<FaT />} style={{ color: 'white' }}>
-          Tester
-        </MenuItem>
+        <SubMenu label="Tester" icon={<FaT />} style={{ color: 'white'}}>
+          <MenuItem component={<Link to="/dashboard" />}>BlueBox</MenuItem>
+          <MenuItem component={<Link to="/dashboard" />}>RedBox</MenuItem>
+          <MenuItem component={<Link to="/dashboard" />}>GreenBox</MenuItem>
+        </SubMenu>
+
         <MenuItem component={<Link to="/dashboard" />} icon={<FaH />} style={{ color: 'white' }}>
           Handler
         </MenuItem>

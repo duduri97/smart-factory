@@ -1,4 +1,4 @@
-import { Suspense,useRef } from 'react'
+import { Suspense,useRef, useState } from 'react'
 import { Perf } from 'r3f-perf'
 import { Canvas } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
@@ -13,6 +13,18 @@ const MiniMapFactoryScene = () => {
   const groupRef = useRef()
   const { modelPartName, setModelPartName, setPosition, setLerping, setMove } = clickModelPostion((state) => state)
   const { nodes } = useGLTF('./models/Factory_1.glb')
+  const [hovered, setHover] = useState()
+
+  const pointOnEventHandler = (e) => {
+    setHover(e.object.name)
+    setMove(false)
+  }
+
+  const pointOutEventHandler = (e) => {
+    setHover(false)
+    setMove(false)
+  };  
+
 
   const onClickEventHandler = (e) => {
     setPosition(e.object.position)
@@ -34,11 +46,12 @@ const MiniMapFactoryScene = () => {
             <group ref={groupRef} dispose={null}>
               <primitive object={nodes.Scene} />
               {['BlueBox', 'GreenBox', 'RedBox'].map((modelName) => (
-                <Select key={modelName} name={modelName} enabled={modelPartName === modelName}>
+                <Select key={modelName} name={modelName} enabled={hovered === modelName || modelPartName === modelName}>
                   <mesh
                     name={modelName}
                     onClick={onClickEventHandler}
-                    // onPointerOut={() => setLerping(false)}
+                    onPointerOver={pointOnEventHandler}
+                    onPointerOut={pointOutEventHandler}
                   >
                     <primitive object={nodes[modelName]} />
                   </mesh>
