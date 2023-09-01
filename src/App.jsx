@@ -1,9 +1,8 @@
 import { Suspense } from 'react'
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import routes from './routes'
 import Loader from './common/Loader'
-import LeftSidebar from './components/sidebar/LeftSidebar'
 
 export default function App() {
   return (
