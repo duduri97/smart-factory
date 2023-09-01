@@ -1,13 +1,35 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom'
-import { Sidebar, Menu, menuClasses ,SubMenu, MenuItem, useProSidebar } from 'react-pro-sidebar'
+import { Link, useNavigate } from 'react-router-dom'
+import { Sidebar, Menu, menuClasses, SubMenu, MenuItem, useProSidebar } from 'react-pro-sidebar'
 import { Image } from 'react-bootstrap'
 import { FaT, FaH, FaV } from 'react-icons/fa6'
 import { TfiLayoutSlider } from 'react-icons/tfi'
+import { clickModelPostion } from '../../store'
+
+import factoryFacility from '../../db/factoryFacility.json'
 
 const LeftSidebar = () => {
   const { collapseSidebar } = useProSidebar()
+  const { setModelPartName, setLerping, setCameraMove, setPosition} = clickModelPostion((state) => state)
+  const nav = useNavigate()
+
+  const logoClickEventHandler = () => {
+    setModelPartName('')
+  }
+
+  const moveFacilityClickEventHandler = (e) => {
+    nav('/dashboard')
+    setModelPartName(e.target.innerText)
+    setLerping(true)
+    setCameraMove(true)
+    
+    factoryFacility.filter((facility) => {
+      if (facility.title === e.target.innerText) {
+        setPosition(facility.modelPosition) 
+      }
+    })
+  }
 
   return (
     <Sidebar className="app" backgroundColor="rgb(0, 0, 0)" style={{ borderColor: 'black' }}>
@@ -39,7 +61,7 @@ const LeftSidebar = () => {
             />
           }
           style={{ marginBottom: '40px', marginTop: '20px' }}>
-          <Link to="/">
+          <Link to="/" onClick={logoClickEventHandler}>
             <Image src="./images/logo.png" />
           </Link>
         </MenuItem>
@@ -59,9 +81,9 @@ const LeftSidebar = () => {
             }
           }}>
           <SubMenu label="Tester" icon={<FaT />} style={{ backgroundColor: 'black', color: 'white' }}>
-            <MenuItem component={<Link to="/dashboard" />}>BlueBox</MenuItem>
-            <MenuItem component={<Link to="/dashboard" />}>RedBox</MenuItem>
-            <MenuItem component={<Link to="/dashboard" />}>GreenBox</MenuItem>
+            <MenuItem onClick={(e) => moveFacilityClickEventHandler(e)}>BlueBox</MenuItem>
+            <MenuItem onClick={(e) => moveFacilityClickEventHandler(e)}>RedBox</MenuItem>
+            <MenuItem onClick={(e) => moveFacilityClickEventHandler(e)}>GreenBox</MenuItem>
           </SubMenu>
         </Menu>
 
