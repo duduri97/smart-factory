@@ -48,7 +48,7 @@ const LeftSidebar = () => {
                 }
               }
             }
-          }
+          },
         }}>
         <MenuItem
           className="menu1"
